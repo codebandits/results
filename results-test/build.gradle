@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':results')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
+    compile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    testCompile "org.assertj:assertj-core:$assertJVersion"
+}
