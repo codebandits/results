@@ -1,5 +1,7 @@
 # results
 
+[![Concourse](https://wings.concourse.ci/api/v1/teams/code-bandits/pipelines/results/jobs/tests/badge)](https://wings.concourse.ci/teams/code-bandits/pipelines/results)
+
 [![Release](https://jitpack.io/v/codebandits/results.svg)](https://jitpack.io/#codebandits/results)
 
 ## Installation
