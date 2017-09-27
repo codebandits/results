@@ -4,12 +4,14 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitGradlePluginVersion"
     }
 }
 
 subprojects {
     apply plugin: 'kotlin'
     apply plugin: 'maven'
+    apply plugin: 'org.junit.platform.gradle.plugin'
 
     repositories {
         mavenCentral()
