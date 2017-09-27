@@ -28,6 +28,22 @@ class ResultHelpers {
                 result failsAnd {}
             })
         }
+
+        @Test
+        fun `succeedsWith matches the expected value`() {
+            result succeedsWith 1
+
+            assertThrows(AssertionError::class.java, {
+                result succeedsWith 2
+            })
+        }
+
+        @Test
+        fun `failsWith fails`() {
+            assertThrows(AssertionError::class.java, {
+                result failsWith 1
+            })
+        }
     }
 
     @Nested
@@ -48,6 +64,22 @@ class ResultHelpers {
 
             assertThrows(AssertionError::class.java, {
                 result succeedsAnd {}
+            })
+        }
+
+        @Test
+        fun `succeedsWith fails`() {
+            assertThrows(AssertionError::class.java, {
+                result succeedsWith 1
+            })
+        }
+
+        @Test
+        fun `failsWith matches the expected value`() {
+            result failsWith 1
+
+            assertThrows(AssertionError::class.java, {
+                result failsWith 2
             })
         }
     }
