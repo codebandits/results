@@ -1,16 +1,16 @@
 package io.github.codebandits.results
 
-fun <failureType, successType> List<Result<failureType, successType>>.traverse() : Result<failureType, List<successType>> {
-    val list : Result<failureType, List<successType>> = Success(content = emptyList())
-    return this.fold(list) { accumulator: Result<failureType, List<successType>>, result : Result<failureType, successType> ->
+fun <FailureType, SuccessType> List<Result<FailureType, SuccessType>>.traverse() : Result<FailureType, List<SuccessType>> {
+    val list : Result<FailureType, List<SuccessType>> = Success(content = emptyList())
+    return this.fold(list) { accumulator: Result<FailureType, List<SuccessType>>, result : Result<FailureType, SuccessType> ->
         when(accumulator) {
             is Success -> {
                 when(result) {
-                    is Success -> Success<failureType, List<successType>>(content = accumulator.content.plus(result.content))
-                    is Failure -> Failure<failureType, List<successType>>(content = result.content)
+                    is Success -> Success<FailureType, List<SuccessType>>(content = accumulator.content.plus(result.content))
+                    is Failure -> Failure<FailureType, List<SuccessType>>(content = result.content)
                 }
             }
-            is Failure -> Failure<failureType, List<successType>>(content = accumulator.content)
+            is Failure -> Failure<FailureType, List<SuccessType>>(content = accumulator.content)
         }
     }
 }

@@ -5,6 +5,6 @@ import io.github.codebandits.results.Result
 import io.github.codebandits.results.Success
 import java.util.*
 
-fun <successType> Optional<successType>.asResult(): Result<Unit, successType> = this
-        .map { it: successType -> Success<Unit, successType>(it) as Result<Unit, successType> }
-        .orElse(Failure<Unit, successType>(Unit))
+fun <SuccessType> Optional<SuccessType>.asResult(): Result<Unit, SuccessType> = this
+        .map { it: SuccessType -> Success<Unit, SuccessType>(it) as Result<Unit, SuccessType> }
+        .orElse(Failure<Unit, SuccessType>(Unit))

@@ -4,7 +4,7 @@ import io.github.codebandits.results.Failure
 import io.github.codebandits.results.Result
 import io.github.codebandits.results.Success
 
-fun <successType> wrapThrowableInResult(fn: () -> successType): Result<Throwable, successType> {
+fun <SuccessType> wrapThrowableInResult(fn: () -> SuccessType): Result<Throwable, SuccessType> {
     return try {
         Success(fn.invoke())
     } catch (e: Throwable) {

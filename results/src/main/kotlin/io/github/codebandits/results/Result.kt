@@ -1,5 +1,5 @@
 package io.github.codebandits.results
 
-sealed class Result<failureType, successType>
-data class Success<failureType, successType>(val content: successType) : Result<failureType, successType>()
-data class Failure<failureType, successType>(val content: failureType) : Result<failureType, successType>()
+sealed class Result<FailureType, SuccessType>
+data class Success<FailureType, SuccessType>(val content: SuccessType) : Result<FailureType, SuccessType>()
+data class Failure<FailureType, SuccessType>(val content: FailureType) : Result<FailureType, SuccessType>()

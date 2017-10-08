@@ -1,21 +1,21 @@
 package io.github.codebandits.results
 
-fun <failureType, successType, newSuccessType> Result<failureType, successType>.map(
-        transform: (successType) -> newSuccessType
-): Result<failureType, newSuccessType> {
+fun <FailureType, SuccessType, newSuccessType> Result<FailureType, SuccessType>.map(
+        transform: (SuccessType) -> newSuccessType
+): Result<FailureType, newSuccessType> {
 
     return when (this) {
         is Success -> Success(transform(content))
-        is Failure -> Failure<failureType, newSuccessType>(content = content)
+        is Failure -> Failure<FailureType, newSuccessType>(content = content)
     }
 }
 
-fun <failureType, newFailureType, successType> Result<failureType, successType>.mapError(
-        transform: (failureType) -> newFailureType
-): Result<newFailureType, successType> {
+fun <FailureType, newFailureType, SuccessType> Result<FailureType, SuccessType>.mapError(
+        transform: (FailureType) -> newFailureType
+): Result<newFailureType, SuccessType> {
 
     return when (this) {
-        is Success -> Success<newFailureType, successType>(content = content)
+        is Success -> Success<newFailureType, SuccessType>(content = content)
         is Failure -> Failure(transform(content))
     }
 }
