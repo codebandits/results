@@ -14,6 +14,13 @@ class ResultHelpers {
         val result = Success<Int, Int>(1)
 
         @Test
+        fun `succeeds returns the content`() {
+
+            val content = result.succeeds()
+            assertThat(content).isEqualTo(1)
+        }
+
+        @Test
         fun `succeedsAnd yields the content`() {
 
             result succeedsAnd {
@@ -66,6 +73,14 @@ class ResultHelpers {
     inner class `when result is a Failure` {
 
         val result = Failure<Int, Int>(1)
+
+        @Test
+        fun `succeeds fails`() {
+
+            assertThrows(AssertionError::class.java, {
+                result.succeeds()
+            })
+        }
 
         @Test
         fun `failsAnd yields the content`() {
