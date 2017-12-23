@@ -2,7 +2,7 @@ package io.github.codebandits.results.adapters
 
 import io.github.codebandits.results.Failure
 import io.github.codebandits.results.Success
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
@@ -16,9 +16,9 @@ class NullableTest {
 
         @Test
         fun `presenceAsResult returns a Success with the non-nullable value`() {
-            Assertions.assertThat(result).isInstanceOf(Success::class.java)
+            assertThat(result).isInstanceOf(Success::class.java)
             val content: String = (result as Success).content
-            Assertions.assertThat(content).isEqualTo("freedom")
+            assertThat(content).isEqualTo("freedom")
         }
     }
 
@@ -30,8 +30,8 @@ class NullableTest {
 
         @Test
         fun `presenceAsResult returns a Failure of type Unit`() {
-            Assertions.assertThat(result).isInstanceOf(Failure::class.java)
-            Assertions.assertThat((result as Failure).content).isEqualTo(Unit)
+            assertThat(result).isInstanceOf(Failure::class.java)
+            assertThat((result as Failure).content).isEqualTo(Unit)
         }
     }
 }

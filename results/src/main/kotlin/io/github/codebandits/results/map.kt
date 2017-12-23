@@ -6,7 +6,7 @@ fun <FailureType, SuccessType, newSuccessType> Result<FailureType, SuccessType>.
 
     return when (this) {
         is Success -> Success(transform(content))
-        is Failure -> Failure<FailureType, newSuccessType>(content = content)
+        is Failure -> Failure(content = content)
     }
 }
 
@@ -15,7 +15,7 @@ fun <FailureType, newFailureType, SuccessType> Result<FailureType, SuccessType>.
 ): Result<newFailureType, SuccessType> {
 
     return when (this) {
-        is Success -> Success<newFailureType, SuccessType>(content = content)
+        is Success -> Success(content = content)
         is Failure -> Failure(transform(content))
     }
 }

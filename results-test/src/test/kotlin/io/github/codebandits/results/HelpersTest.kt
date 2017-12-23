@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.lang.AssertionError
 
-class ResultHelpers {
+class HelpersTest {
 
     @Nested
     inner class `when result is a Success` {

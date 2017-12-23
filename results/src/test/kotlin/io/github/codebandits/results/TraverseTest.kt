@@ -9,12 +9,12 @@ class TraverseTest {
     @Nested
     inner class `when all the result objects in the List are a Success` {
 
-        val results = listOf(
-                Success<Int, Int>(1),
-                Success<Int, Int>(2),
-                Success<Int, Int>(3),
-                Success<Int, Int>(4),
-                Success<Int, Int>(5)
+        val results = listOf<Result<Int, Int>>(
+                Success(1),
+                Success(2),
+                Success(3),
+                Success(4),
+                Success(5)
         )
 
         val traverseResult = results.traverse()
@@ -33,12 +33,12 @@ class TraverseTest {
     @Nested
     inner class `when some the result objects in the List are a Failure` {
 
-        val results = listOf(
-                Success<Int, Int>(1),
-                Failure<Int, Int>(2),
-                Failure<Int, Int>(3),
-                Success<Int, Int>(4),
-                Success<Int, Int>(5)
+        val results = listOf<Result<Int, Int>>(
+                Success(1),
+                Failure(2),
+                Failure(3),
+                Success(4),
+                Success(5)
         )
 
         val traverseResult = results.traverse()
